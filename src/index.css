@@ -124,6 +124,30 @@
   }
 }
 
+/* Space background gradient */
+@layer utilities {
+  .space-gradient {
+    background: linear-gradient(
+      135deg,
+      #000000 0%,
+      #0a0a0a 25%,
+      #1a1a2e 50%,
+      #16213e 75%,
+      #0f0f23 100%
+    );
+  }
+  
+  .space-gradient-radial {
+    background: radial-gradient(
+      ellipse at center,
+      #1a1a2e 0%,
+      #16213e 35%,
+      #0f0f23 70%,
+      #000000 100%
+    );
+  }
+}
+
 /* Enhanced animations */
 @keyframes float {
   0%, 100% {
@@ -156,6 +180,35 @@
   }
 }
 
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(10px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(0) translateY(-10px);
+  }
+  75% {
+    transform: translateX(-10px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
 /* Glass effect utilities */
 @layer utilities {
   .glass {
@@ -172,6 +225,14 @@
 
   .animate-fall {
     animation: fall linear infinite;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .animate-drift {
+    animation: drift 20s ease-in-out infinite;
   }
 }
 
