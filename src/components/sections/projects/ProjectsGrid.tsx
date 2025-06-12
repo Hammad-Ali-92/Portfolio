@@ -17,10 +17,10 @@ const projects = [
     repoUrl: "https://github.com/Hammad-Ali-92",
   },
   {
-    title: "Multi-User Messaging Platform",
+    title: "Ecommerce Fullstack Web Application",
     description:
-      "Developed a messaging platform with secure peer-to-peer communication using advanced network protocols, encryption, and authentication to enable seamless multi-user interactions over local networks.",
-    tags: ["Java", "Networking", "Socket Programming"],
+      "Developed a responsive eCommerce application with dynamic content, secure user authentication, and admin product management. Built with React + TypeScript, TailwindCSS, Node.js, Express.js, MongoDB, and JWT authentication.",
+    tags: ["TypeScript", "React.js", "Node.js", "MongoDB"],
     repoUrl: "https://github.com/Hammad-Ali-92",
   },
 ];

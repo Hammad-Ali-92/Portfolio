@@ -15,9 +15,9 @@ const Hero: React.FC = () => {
           <div className="order-2 md:order-1">            
             <div className="space-y-6">
               <div>
-                <h2 className="text-lg font-mono mb-2 text-accent">Hi, I'm Zaim Abbasi</h2>
+                <h2 className="text-lg font-mono mb-2 text-accent">Hi, I'm Hammad Ali</h2>
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                  SWE | Full-Stack Engineer | Ex NADRA | Software Engineering Undergraduate, FAST (Class of '26)
+                Software Engineering Undergraduate, FAST (Class of '26)
                 </h1>
               </div>
               

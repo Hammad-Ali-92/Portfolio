@@ -8,15 +8,15 @@ const skills = [
   },
   {
     title: "Backend",
-    technologies: ["Node", "Next", "Python"]
+    technologies: ["Node", "Next"]
   },
   {
     title: "Databases",
-    technologies: ["Supabase", "MongoDB", "MsSQL", "MySQL"]
+    technologies: ["MongoDB", "MsSQL", "MySQL"]
   },
   {
     title: "Architecture",
-    technologies: ["Microservices", "REST", "System Design"]
+    technologies: ["Microservices", "System Design"]
   }
 ];
 

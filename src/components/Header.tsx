@@ -35,7 +35,7 @@ const Header: React.FC = () => {
     >
       <div className="container flex justify-between items-center">
         <a href="#home" className="font-pixel text-xl tracking-wider">
-          <span className="text-accent">ZAIM</span>
+          <span className="text-accent">HAMMAD</span>
           <span className="text-foreground">.DEV</span>
         </a>
 
