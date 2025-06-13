@@ -17,10 +17,10 @@ const Index: React.FC = () => {
       <div className="min-h-screen flex flex-col relative">
         {/* Space-themed background with animated starfield */}
         <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-          {/* Base space gradient */}
+          {/* Base space gradient - white in light mode, dark in dark mode */}
           <div className="absolute inset-0 space-gradient" />
           
-          {/* Animated starfield */}
+          {/* Animated starfield - black stars in light mode, white in dark mode */}
           <Starfield className="opacity-80" starCount={200} />
           
           {/* Subtle overlay for content readability */}

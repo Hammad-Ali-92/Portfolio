@@ -1,41 +1,30 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Calendar, Code2, Laptop } from "lucide-react";
+import { Code2, Cloud, Database } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-interface JournalEntry {
-  date: string;
-  title: string;
-  description: string;
-  type: "tech" | "project";
+interface AboutItem {
   icon: React.ReactNode;
+  text: string;
+  type: "work" | "learning" | "passion";
 }
 
-const journalEntries: JournalEntry[] = [
+const aboutItems: AboutItem[] = [
   {
-    date: "March 23, 2025",
-    title: "Finalized Portfolio Website",
-    description:
-      "Finished and launched my portfolio built with React, Tailwind CSS, and Framer Motion. Feels great to have it live!",
-    type: "project",
-    icon: <Laptop size={16} className="text-pixel-green" />,
+    icon: <Code2 size={16} className="text-pixel-green" />,
+    text: "I'm currently working on Full Stack Websites",
+    type: "work",
   },
   {
-    date: "March 15, 2025",
-    title: "Integrated shadcn/ui Components",
-    description:
-      "Used shadcn/ui to make my portfolio cleaner and more reusable. Really improved the component structure.",
-    type: "tech",
-    icon: <Code2 size={16} className="text-pixel-blue" />,
+    icon: <Cloud size={16} className="text-pixel-blue" />,
+    text: "Learning Cloud Computing & DevOps",
+    type: "learning",
   },
   {
-    date: "March 10, 2025",
-    title: "Advanced Framer Motion Animations",
-    description:
-      "Made my website smoother with Framer Motion animations. Transitions and interactions feel way better now.",
-    type: "tech",
-    icon: <Calendar size={16} className="text-pixel-purple" />,
+    icon: <Database size={16} className="text-pixel-purple" />,
+    text: "Passionate about Backend Development & System Design",
+    type: "passion",
   },
 ];
 
@@ -49,11 +38,11 @@ export const HeroJournal: React.FC = () => {
         <h2 className={cn(
           "font-mono",
           isMobile ? "text-lg" : "text-xl"
-        )}>Journal</h2>
+        )}>About Me</h2>
       </div>
 
       <div className="space-y-6">
-        {journalEntries.map((entry, index) => (
+        {aboutItems.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -66,36 +55,23 @@ export const HeroJournal: React.FC = () => {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  {entry.icon}
+                  {item.icon}
                   <span className={cn(
-                    "font-mono text-muted-foreground",
+                    "px-3 py-1 rounded-full font-mono transition-colors duration-300",
+                    "bg-accent/10 text-accent border border-accent/20",
+                    "group-hover:bg-accent/20 group-hover:border-accent/30",
                     isMobile ? "text-[10px]" : "text-xs"
                   )}>
-                    {entry.date}
+                    {item.type}
                   </span>
                 </div>
-                <span className={cn(
-                  "px-3 py-1 rounded-full font-mono transition-colors duration-300",
-                  "bg-accent/10 text-accent border border-accent/20",
-                  "group-hover:bg-accent/20 group-hover:border-accent/30",
-                  isMobile ? "text-[10px]" : "text-xs"
-                )}>
-                  {entry.type}
-                </span>
               </div>
               
-              <h3 className={cn(
-                "font-mono font-semibold group-hover:text-accent transition-colors duration-300",
-                isMobile ? "text-sm" : "text-base"
-              )}>
-                {entry.title}
-              </h3>
-              
               <p className={cn(
-                "text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300 font-mono",
+                "text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300 font-mono leading-relaxed",
                 isMobile ? "text-xs" : "text-sm"
               )}>
-                {entry.description}
+                {item.text}
               </p>
             </div>
           </motion.div>

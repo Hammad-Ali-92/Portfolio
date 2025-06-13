@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 220 33% 98%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222 47% 11%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
     --radius: 0.5rem;
   }
 
@@ -129,6 +129,28 @@
   .space-gradient {
     background: linear-gradient(
       135deg,
+      #ffffff 0%,
+      #f8f9fa 25%,
+      #e9ecef 50%,
+      #dee2e6 75%,
+      #ced4da 100%
+    );
+  }
+  
+  .space-gradient-radial {
+    background: radial-gradient(
+      ellipse at center,
+      #ffffff 0%,
+      #f8f9fa 35%,
+      #e9ecef 70%,
+      #ced4da 100%
+    );
+  }
+
+  /* Dark mode space gradients */
+  .dark .space-gradient {
+    background: linear-gradient(
+      135deg,
       #000000 0%,
       #0a0a0a 25%,
       #1a1a2e 50%,
@@ -137,7 +159,7 @@
     );
   }
   
-  .space-gradient-radial {
+  .dark .space-gradient-radial {
     background: radial-gradient(
       ellipse at center,
       #1a1a2e 0%,

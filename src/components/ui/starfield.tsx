@@ -26,7 +26,18 @@ const Starfield: React.FC<StarfieldProps> = ({
   const starsRef = useRef<Star[]>([]);
   const timeRef = useRef<number>(0);
 
-  const starColors = [
+  // Light mode colors (black stars)
+  const lightStarColors = [
+    '#000000',
+    '#1a1a1a',
+    '#333333',
+    '#4a4a4a',
+    '#666666',
+    '#808080'
+  ];
+
+  // Dark mode colors (white/blue stars)
+  const darkStarColors = [
     '#ffffff',
     '#e8f4fd',
     '#cce7ff',
@@ -35,7 +46,13 @@ const Starfield: React.FC<StarfieldProps> = ({
     '#99c9ff'
   ];
 
+  const getStarColors = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    return isDark ? darkStarColors : lightStarColors;
+  };
+
   const initializeStars = (width: number, height: number) => {
+    const starColors = getStarColors();
     starsRef.current = Array.from({ length: starCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -88,8 +105,14 @@ const Starfield: React.FC<StarfieldProps> = ({
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Update and draw stars
+    // Update star colors based on theme
+    const starColors = getStarColors();
     starsRef.current.forEach(star => {
+      // Update star color if theme changed
+      if (!starColors.includes(star.color)) {
+        star.color = starColors[Math.floor(Math.random() * starColors.length)];
+      }
+      
       // Slow horizontal movement
       star.x += star.speed;
       
@@ -130,8 +153,21 @@ const Starfield: React.FC<StarfieldProps> = ({
 
     window.addEventListener('resize', handleResize);
 
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      // Reinitialize stars with new colors when theme changes
+      const rect = canvas.getBoundingClientRect();
+      initializeStars(rect.width, rect.height);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
     return () => {
       window.removeEventListener('resize', handleResize);
+      observer.disconnect();
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
