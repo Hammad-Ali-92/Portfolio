@@ -28,11 +28,11 @@ export const HeroContent: React.FC = () => {
           transition={{ delay: 0.2 }}
         >
           <h2 className="text-base font-mono text-accent/80">Hi, I'm</h2>
-          <h1 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-mono tracking-tight`}>
+          <h1 className={`${isMobile ? 'text-2xl' : 'text-4xl'} font-mono tracking-tight`}>
             Hammad Ali
             <span className="text-accent">.</span>
           </h1>
-          <p className="text-lg font-mono text-muted-foreground/80">
+          <p className={`${isMobile ? 'text-base' : 'text-xl'} font-mono text-muted-foreground/80`}>
             Software & Product Engineer
           </p>
         </motion.div>

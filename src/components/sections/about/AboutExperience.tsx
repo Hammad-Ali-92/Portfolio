@@ -6,17 +6,29 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const experiences = [
   {
-    role: "Software Developer",
-    company: "Event-Verse",
-    type: "Desktop/Web-Based Application",
+    role: "Event-Verse",
+    company: "Desktop/Web-Based Application",
+    type: "Project",
     location: "Pakistan",
     duration: "2023 - 2024",
     technologies: ["C#", ".NET", "SQL Server"],
     points: [
-      "Developed a scalable system for managing events, ticketing, and analytics using C# for application logic and SQL Server for data management.",
-      "Implemented comprehensive data management for events, ticketing, attendees, vendors, and analytics with optimized database queries.",
-      "Built role-specific functionalities supporting organizers, attendees, and sponsors with tailored user experiences.",
-      "Designed and implemented event management workflows, ticketing systems, and real-time analytics dashboards for improved operational efficiency."
+      "Scalable system for managing events, ticketing, and analytics",
+      "Utilized C# for the application logic and SQL Server for managing data related to events, ticketing, attendees, vendors, and analytics",
+      "The system supports organizers, attendees, and sponsors with role-specific functionalities"
+    ]
+  },
+  {
+    role: "ID Verification",
+    company: "Mobile App Design using Figma",
+    type: "Project",
+    location: "Design Project",
+    duration: "2024",
+    technologies: ["Figma", "HCI Usability Principles"],
+    points: [
+      "Designed a mobile application interface focused on secure and user-friendly ID verification",
+      "Applied core HCI usability principles and design guidelines to create intuitive, accessible, and aesthetically consistent user flows",
+      "Created user flows for ID scanning, validation, and user onboarding"
     ]
   }
 ];
