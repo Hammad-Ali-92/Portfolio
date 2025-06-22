@@ -1,61 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm, ValidationError } from '@formspree/react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send } from "lucide-react";
-import { toast } from "sonner";
+import { Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  
-  const [loading, setLoading] = useState(false);
-  
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
+  const [state, handleSubmit] = useForm("xpwryall");
 
-    try {
-      const response = await fetch("https://formspree.io/f/xwployde", {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          ...formData,
-          _replyto: "hammadaliduggaljutt@gmail.com"
-        })
-      });
-
-      if (response.ok) {
-        toast.success("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        const data = await response.json();
-        if ('errors' in data) {
-          toast.error(data.errors.map((error: any) => error.message).join(", "));
-        } else {
-          toast.error("Failed to send message. Please try again.");
-        }
-      }
-    } catch (error) {
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Show success message if form was submitted successfully
+  if (state.succeeded) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="h-full bg-card/50 backdrop-blur-sm rounded-2xl p-6 border-2 border-accent/10 hover:border-accent/20 transition-all duration-300 flex items-center justify-center"
+      >
+        <div className="text-center space-y-4">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          >
+            <CheckCircle className="h-16 w-16 text-accent mx-auto" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <h3 className="text-xl font-mono text-accent mb-2">Message Sent!</h3>
+            <p className="text-muted-foreground/70 font-mono text-sm">
+              Thanks for reaching out! I'll get back to you soon.
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -72,11 +56,15 @@ export const ContactForm: React.FC = () => {
           <Input
             id="name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
             required
             className="font-mono bg-background/50 border-accent/10 focus:border-accent/20 focus-visible:ring-1 focus-visible:ring-accent/20"
             placeholder="Your Name"
+          />
+          <ValidationError 
+            prefix="Name" 
+            field="name"
+            errors={state.errors}
+            className="text-red-500 text-xs font-mono mt-1"
           />
         </div>
         
@@ -88,11 +76,15 @@ export const ContactForm: React.FC = () => {
             id="email"
             name="email"
             type="email"
-            value={formData.email}
-            onChange={handleChange}
             required
             className="font-mono bg-background/50 border-accent/10 focus:border-accent/20 focus-visible:ring-1 focus-visible:ring-accent/20"
             placeholder="your.email@example.com"
+          />
+          <ValidationError 
+            prefix="Email" 
+            field="email"
+            errors={state.errors}
+            className="text-red-500 text-xs font-mono mt-1"
           />
         </div>
         
@@ -103,20 +95,24 @@ export const ContactForm: React.FC = () => {
           <Textarea
             id="message"
             name="message"
-            value={formData.message}
-            onChange={handleChange}
             required
             className="font-mono h-[calc(100%-2rem)] min-h-[100px] bg-background/50 border-accent/10 focus:border-accent/20 focus-visible:ring-1 focus-visible:ring-accent/20 resize-none mb-4"
             placeholder="Your message here..."
+          />
+          <ValidationError 
+            prefix="Message" 
+            field="message"
+            errors={state.errors}
+            className="text-red-500 text-xs font-mono mt-1"
           />
         </div>
         
         <Button 
           type="submit" 
           className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-mono group"
-          disabled={loading}
+          disabled={state.submitting}
         >
-          {loading ? (
+          {state.submitting ? (
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 bg-current rounded-full animate-pulse"></span>
               <span>Sending...</span>
@@ -128,6 +124,15 @@ export const ContactForm: React.FC = () => {
             </span>
           )}
         </Button>
+
+        {/* Display general form errors */}
+        {state.errors && state.errors.length > 0 && (
+          <div className="text-red-500 text-xs font-mono text-center">
+            {state.errors.map((error, index) => (
+              <div key={index}>{error.message}</div>
+            ))}
+          </div>
+        )}
       </form>
     </motion.div>
   );

@@ -8,7 +8,7 @@ const skills = [
   },
   {
     title: "Backend",
-    technologies: ["Node", "Next"]
+    technologies: ["Node", "Express"]
   },
   {
     title: "Databases",

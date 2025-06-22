@@ -6,16 +6,16 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const experiences = [
   {
-    role: "Event-Verse",
-    company: "Desktop/Web-Based Application",
+    role: "Weather Forecast App with AI Chatbot",
+    company: "Interactive Web Application",
     type: "Project",
-    location: "Pakistan",
+    location: "Frontend Development",
     duration: "2023 - 2024",
-    technologies: ["C#", ".NET", "SQL Server"],
+    technologies: ["HTML", "CSS", "JavaScript", "jQuery", "OpenWeather API", "Generative AI"],
     points: [
-      "Scalable system for managing events, ticketing, and analytics",
-      "Utilized C# for the application logic and SQL Server for managing data related to events, ticketing, attendees, vendors, and analytics",
-      "The system supports organizers, attendees, and sponsors with role-specific functionalities"
+      "Developed an interactive weather forecasting application integrated with a generative AI chatbot to enhance frontend development skills and improve user engagement through conversational interaction",
+      "Integrated weather API and AI chatbot for real-time, user-friendly weather updates",
+      "Enhanced user experience through conversational AI interface for weather queries and recommendations"
     ]
   },
   {
