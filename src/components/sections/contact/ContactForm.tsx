@@ -125,12 +125,10 @@ export const ContactForm: React.FC = () => {
           )}
         </Button>
 
-        {/* Display general form errors */}
-        {state.errors && state.errors.length > 0 && (
+        {/* Display general form errors if any exist */}
+        {state.errors && (
           <div className="text-red-500 text-xs font-mono text-center">
-            {state.errors.map((error, index) => (
-              <div key={index}>{error.message}</div>
-            ))}
+            <div>Please check your form and try again.</div>
           </div>
         )}
       </form>
