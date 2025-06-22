@@ -7,7 +7,7 @@ export const ProjectsFooter: React.FC = () => {
     <div className="text-center mt-12">
       <Button className="bg-accent hover:bg-accent/90 h-9 font-mono" asChild>
         <a
-          href="https://github.com/Hammad-Ali-92?tab=repositories"
+          href="https://github.com/Hammad-i220628?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2"

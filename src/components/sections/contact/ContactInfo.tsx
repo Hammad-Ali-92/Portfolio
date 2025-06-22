@@ -21,7 +21,7 @@ const contactItems = [
 const socialLinks = [
   {
     icon: <Github className="h-5 w-5" />,
-    href: "https://github.com/Hammad-Ali-92",
+    href: "https://github.com/Hammad-i220628",
     label: "GitHub"
   },
   {
@@ -61,12 +61,14 @@ export const ContactInfo: React.FC = () => {
           className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border-2 border-accent/10 hover:border-accent/20 transition-all duration-300"
         >
           <div className="flex items-start gap-4">
-            <div className="p-3 rounded-xl bg-accent/5 border-2 border-accent/10 text-accent">
+            <div className="p-3 rounded-xl bg-accent/5 border-2 border-accent/10 text-accent flex-shrink-0">
               {item.icon}
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 min-w-0 flex-1">
               <h3 className="font-mono text-lg">{item.title}</h3>
-              <p className="font-mono text-muted-foreground/70">{item.content}</p>
+              <p className="font-mono text-muted-foreground/70 break-all text-sm md:text-base">
+                {item.content}
+              </p>
               {item.subContent && (
                 <p className="font-mono text-sm text-muted-foreground/50">
                   {item.subContent}

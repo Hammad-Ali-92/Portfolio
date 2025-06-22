@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const socialLinks = [
   {
-    href: "https://github.com/Hammad-Ali-92",
+    href: "https://github.com/Hammad-i220628",
     icon: Github,
     label: "GitHub Profile",
     delay: 0.1
