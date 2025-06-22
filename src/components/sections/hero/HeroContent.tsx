@@ -22,17 +22,20 @@ export const HeroContent: React.FC = () => {
     >
       <div className="space-y-4">
         <motion.div
-          className="space-y-2"
+          className="space-y-0" // Remove gap between Hi, I'm and name
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="text-base font-mono text-accent/80">Hi, I'm</h2>
-          <h1 className={`${isMobile ? 'text-2xl' : 'text-4xl'} font-mono tracking-tight`}>
-            Hammad Ali
-            <span className="text-accent">.</span>
-          </h1>
-          <p className={`${isMobile ? 'text-base' : 'text-xl'} font-mono text-muted-foreground/80`}>
+          {/* Single line with Hi, I'm and name aligned */}
+          <div className="flex flex-col">
+            <h2 className={`${isMobile ? 'text-sm' : 'text-base'} font-mono text-accent/80 leading-none`}>Hi, I'm</h2>
+            <h1 className={`${isMobile ? 'text-3xl' : 'text-4xl'} font-mono tracking-tight leading-none mt-1`}>
+              Hammad Ali
+              <span className="text-accent">.</span>
+            </h1>
+          </div>
+          <p className={`${isMobile ? 'text-lg' : 'text-xl'} font-mono text-muted-foreground/80 mt-2`}>
             Software & Product Engineer
           </p>
         </motion.div>

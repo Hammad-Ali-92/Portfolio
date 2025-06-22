@@ -70,7 +70,8 @@ const Header: React.FC = () => {
           : "py-5"
       }`}
     >
-      <div className="container flex justify-between items-center">
+      <div className="w-full px-5 sm:px-14 flex items-center justify-between">
+
         <a 
           href="#home" 
           className="font-mono text-xl tracking-wider relative group"

@@ -12,8 +12,8 @@ const Hero: React.FC = () => {
     <section 
       id="home" 
       className={cn(
-        "h-[100vh] flex items-center justify-center relative overflow-hidden",
-        isMobile && "pt-20" // Add top padding only on mobile
+        "min-h-screen flex items-center justify-center relative overflow-hidden",
+        isMobile && "pt-24 pb-8" // Increased top padding and added bottom padding for mobile
       )}
       aria-label="Hero Section"
     >      
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         <div className={cn(
           "grid items-start",
           isMobile 
-            ? "grid-cols-1 gap-8 h-full content-center pb-16" 
+            ? "grid-cols-1 gap-12 h-full content-center" // Increased gap between sections on mobile
             : "grid-cols-[1fr,1fr] gap-12 pt-20" // Two equal columns on desktop
         )}>
           {/* Left side - Name and main content */}
